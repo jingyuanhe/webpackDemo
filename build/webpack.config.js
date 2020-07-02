@@ -90,7 +90,7 @@ module.exports = {
                 loader:'babel-loader',
                 options:{
                     presets:[
-                        ['@babel/preset-env']
+                        ['@babel/preset-env',{ modules: false }]
                     ],
                     cacheDirectory:true
                 }
@@ -116,7 +116,7 @@ module.exports = {
         }),
         new webpack.DllReferencePlugin({
             context:__dirname,
-            manifest:require('./vendor-manifest.json')
+            manifest:require('../public/vendor-manifest.json')
         })
     ]
 }

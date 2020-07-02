@@ -4,6 +4,7 @@ const WebpackMerge = require('webpack-merge')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports=WebpackMerge(webpackConfig,{
     mode:'production',
     devtool:'cheap-module-source-map',
@@ -43,5 +44,8 @@ module.exports=WebpackMerge(webpackConfig,{
                 }
               }
         }
-    }
+    },
+    plugins:[
+        new BundleAnalyzerPlugin()
+    ]
 })
